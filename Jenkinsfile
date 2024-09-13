@@ -9,7 +9,7 @@ pipeline {
     }
 
     environment{
-        registry = 'khoapham99/nsfw-detection'
+        registry = 'khoapham99/nsfw-det-app'
         registryCredential = 'dockerhub'      
     }
 
@@ -17,7 +17,7 @@ pipeline {
         stage('Test') {
             agent {
                 docker {
-                    image 'khoapham99/nsfw-detection:latest' 
+                    image 'khoapham99/nsfw-det-app:latest' 
                 }
             }
             steps {
