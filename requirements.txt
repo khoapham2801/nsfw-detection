@@ -10,3 +10,4 @@ imagehash
 Pillow
 uvicorn
 python-multipart
+pytest
