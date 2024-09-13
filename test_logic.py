@@ -11,7 +11,10 @@ import torch
 def test_model():
     processor = AutoImageProcessor.from_pretrained("Falconsai/nsfw_image_detection")
     model = AutoModelForImageClassification.from_pretrained("Falconsai/nsfw_image_detection")
-    device = "cuda:0"
+    if torch.cuda.is_available():
+        device = torch.device("cuda")
+    else:
+        device = torch.device("cpu")
 
     model = model.to(device)
 
