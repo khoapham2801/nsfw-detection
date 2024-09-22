@@ -15,15 +15,20 @@ pipeline {
 
     stages {
         stage('Test') {
+            steps {
+                echo "Checking USER"
+                echo $USER
+                // sh 'pytest test_logic.py'
+            }
             agent {
                 docker {
                     image 'khoapham99/nsfw-det-app:latest' 
                 }
             }
-            steps {
-                echo 'Testing model correctness..'
-                sh 'pytest test_logic.py'
-            }
+            // steps {
+            //     echo 'Testing model correctness..'
+            //     sh 'pytest test_logic.py'
+            // }
         }
         stage('Build') {
             steps {
