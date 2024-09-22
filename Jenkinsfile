@@ -21,11 +21,11 @@ pipeline {
                 sh "whoami"
                 // sh 'pytest test_logic.py'
             }
-            agent {
-                docker {
-                    image 'khoapham99/nsfw-det-app:latest' 
-                }
-            }
+            // agent {
+            //     docker {
+            //         image 'khoapham99/nsfw-det-app:latest' 
+            //     }
+            // }
             // steps {
             //     echo 'Testing model correctness..'
             //     sh 'pytest test_logic.py'
