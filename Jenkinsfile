@@ -17,7 +17,8 @@ pipeline {
         stage('Test') {
             steps {
                 echo "Checking USER"
-                echo "Current user: ${env.USER}"
+                // echo "Current user: ${env.USER}"
+                sh "whoami"
                 // sh 'pytest test_logic.py'
             }
             agent {
