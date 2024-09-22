@@ -1,0 +1,4 @@
+22/09/2024: 
+    1. Deploy Jenkins on GCE.
+    2. Link Jenkins to github + add webhook to listen for changes in repo.
+    3. Test.
