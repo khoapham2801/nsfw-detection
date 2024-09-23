@@ -10,7 +10,7 @@ from transformers import AutoImageProcessor, AutoModelForImageClassification
 import torch
 
 def test_model():
-    os.makedirs("./model_cache")
+    os.makedirs("./model_cache", exist_ok=True)
     processor = AutoImageProcessor.from_pretrained("Falconsai/nsfw_image_detection", cache_dir = "./model_cache")
     model = AutoModelForImageClassification.from_pretrained("Falconsai/nsfw_image_detection", cache_dir = "./model_cache")
     if torch.cuda.is_available():
