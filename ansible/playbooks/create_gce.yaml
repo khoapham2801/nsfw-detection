@@ -51,4 +51,4 @@
       name: "{{ item }}"
       state: absent
     with_items:
-      - 34.835.200.65.191
+      - 35.189.142.94

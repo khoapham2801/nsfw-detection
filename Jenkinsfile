@@ -15,21 +15,15 @@ pipeline {
 
     stages {
         stage('Test') {
-            steps {
-                echo "Checking USER"
-                // echo "Current user: ${env.USER}"
-                sh "whoami"
-                // sh 'pytest test_logic.py'
+            agent {
+                docker {
+                    image 'khoapham99/nsfw-det-app:latest' 
+                }
             }
-            // agent {
-            //     docker {
-            //         image 'khoapham99/nsfw-det-app:latest' 
-            //     }
-            // }
-            // steps {
-            //     echo 'Testing model correctness..'
-            //     sh 'pytest test_logic.py'
-            // }
+            steps {
+                echo 'Testing model correctness..'
+                sh 'pytest test_logic.py'
+            }
         }
         stage('Build') {
             steps {
@@ -47,7 +41,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying models..'
-                echo 'Running a script to trigger pull and start a docker container'
+                sh 'docker run -d -p 8000:8000 khoapham99/nsfw-det-app:latest'
             }
         }
     }

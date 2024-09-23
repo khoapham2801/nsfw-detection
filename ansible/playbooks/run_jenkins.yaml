@@ -41,6 +41,12 @@
         state: latest
         update_cache: true
 
+    - name: Create docker group with specific GID
+      group:
+        name: docker
+        gid: 999 # To make sure GCE's docker group gid is 999, to match with Jenkins's container docker group gid
+        state: present
+
     - name: Pull the Docker image
       community.docker.docker_image:
         name: "{{ default_container_image }}"
@@ -53,4 +59,8 @@
         state: started
         ports:
           - "8080:8080"
+          - "50000:50000"
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
+          - jenkins_home:/var/jenkins_home
         detach: yes  # Run the container in the background
