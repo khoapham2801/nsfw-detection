@@ -2,3 +2,7 @@
     1. Deploy Jenkins on GCE.
     2. Link Jenkins to github + add webhook to listen for changes in repo.
     3. Test.
+
+23/09/2024:
+    1. Open port 8000 to test Jenkins deployed nsfw-det-app API.
+    2. Force Jenkins to deploy app on GKE instead of GCE.
