@@ -3,14 +3,16 @@ from io import BytesIO
 import imagehash
 from fastapi import FastAPI, File, UploadFile
 from loguru import logger
+import os
 
 # Load model directly
 from PIL import Image
 from transformers import AutoImageProcessor, AutoModelForImageClassification
 import torch
 
-processor = AutoImageProcessor.from_pretrained("Falconsai/nsfw_image_detection")
-model = AutoModelForImageClassification.from_pretrained("Falconsai/nsfw_image_detection")
+os.makedirs("./model_cache", exist_ok=True)
+processor = AutoImageProcessor.from_pretrained("Falconsai/nsfw_image_detection", cache_dir = "./model_cache")
+model = AutoModelForImageClassification.from_pretrained("Falconsai/nsfw_image_detection", cache_dir = "./model_cache")
 
 if torch.cuda.is_available():
     device = torch.device("cuda")
