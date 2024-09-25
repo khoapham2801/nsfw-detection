@@ -44,3 +44,18 @@ resource "google_container_cluster" "my-gke" {
 
 #   uniform_bucket_level_access = true
 # }
+
+resource "google_compute_firewall" "default" {
+  name    = "firewall-rules"
+  network = "${var.self_link}"
+  description = "Allow ports for model deployment"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["30000"]
+  }
+
+  direction = "INGRESS"
+
+  source_ranges = ["0.0.0.0/0"]
+}

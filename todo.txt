@@ -2,7 +2,20 @@
     1. Deploy Jenkins on GCE.
     2. Link Jenkins to github + add webhook to listen for changes in repo.
     3. Test.
+    NOTEs: DinD, DooD when running docker inside Jenkins container.
+    
+24/09/2024:
+    1. Open port 8000 to test Jenkins deployed nsfw-det-app API. --> Abort.
+    2. Force Jenkins to deploy app on GKE instead of GCE. --> Use Helm.
+    3. Problem when depolying again when an existed app is already up (port duplication). --> Delay (after using Helm)
 
-23/09/2024:
-    1. Open port 8000 to test Jenkins deployed nsfw-det-app API.
-    2. Force Jenkins to deploy app on GKE instead of GCE.
+25/09/2024:
+    1. Apply Helm for deployment.
+    2. Test with Helm.
+    NOTEs: 
+        - Node autoscale (upper boundary).
+        - In Jenkins deploy stage that uses k8s agent with Helm, J will pull the desired image and create a container
+        from such image that had helm already installed. J will also mount our workspace to the created container.
+
+26/09/2024:
+    1. Learn: Observable Systems.
