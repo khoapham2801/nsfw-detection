@@ -44,11 +44,3 @@
       auth_kind: serviceaccount
       service_account_file: ../secrets/mle-k3-p1-66d41a40cff1.json
       state: present # change to absent to delete the instance
-
-  - name: Remove old SSH keys from known_hosts
-    ansible.builtin.known_hosts:
-      path: "~/.ssh/known_hosts"
-      name: "{{ item }}"
-      state: absent
-    with_items:
-      - 35.189.142.94
