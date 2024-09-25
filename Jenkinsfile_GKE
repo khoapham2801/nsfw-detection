@@ -50,7 +50,7 @@ pipeline {
             }
             steps {
                 echo 'Deploying models..'
-                sh 'helm upgrade --install nsfw-det ./ --namespace jenkins'
+                sh 'helm upgrade --install nsfw-det ./helm --namespace jenkins'
             }
         }
     }
