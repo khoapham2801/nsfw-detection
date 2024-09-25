@@ -29,17 +29,18 @@
 
   - name: Create inbound firewall rule for port 8080
     gcp_compute_firewall:
-      name: allow-port-8080
+      name: allow-port-8080-50000
       network:
         selfLink: global/networks/default
       allowed:
         - ip_protocol: TCP
           ports:
             - '8080'
+            - '50000'
       source_ranges:
         - 0.0.0.0/0  # Allow traffic from any source (use a more specific source range for security)
       direction: INGRESS # Direction from outside to inside, EGRESS is the opposite direction
-      description: Allow incoming traffic on port 8080
+      description: Allow incoming traffic on port 8080 & 50000
       project: mle-k3-p1
       auth_kind: serviceaccount
       service_account_file: ../secrets/mle-k3-p1-66d41a40cff1.json
