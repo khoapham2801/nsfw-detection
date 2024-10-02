@@ -19,3 +19,9 @@
 
 26/09/2024:
     1. Learn: Observable Systems.
+
+02/10/2024:
+    1. Implement Observable systems.
+    2. Use Locust for stress test.
+    3. Use Evidently.ai
+    
