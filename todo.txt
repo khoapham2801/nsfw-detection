@@ -19,3 +19,12 @@
 
 26/09/2024:
     1. Learn: Observable Systems.
+
+02/10/2024:
+    1. Implement Observable systems.
+    2. Use Locust for stress test.
+
+03/10/2024:
+    1. Deploy with NGINX Ingress.
+    2. Deploy monitoring tools in K8S: Prometheus + Grafana using Helm.
+    
