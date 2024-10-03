@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  type: {{ .Values.service.type }}  # Or LoadBalancer if needed
+  ports:
+    - port: {{ .Values.service.port }}               # External port that users access
+      targetPort: {{ .Values.service.targetPort }}        # The port on the container (same as containerPort in deployment.yaml)
+      protocol: TCP
+      nodePort: {{ .Values.service.nodePort }}  
+  selector:
+    app: {{ .Chart.Name }}

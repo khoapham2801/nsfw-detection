@@ -1,0 +1,8 @@
+Congratulations! You have successfully deployed {{ .Chart.Name }}.
+
+Your application is now running. To access it:
+
+Access the application via the following URL:
+   http://<EXTERNAL_IP>:{{ .Values.service.port }}
+
+Thank you for using {{ .Chart.Name }}.
